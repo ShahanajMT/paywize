@@ -58,6 +58,7 @@ class _TransactionDashboardScreenState extends State<TransactionDashboardScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple.withOpacity(0.5),
         title: const Text('Transaction Dashboard'),
         actions: [
           IconButton(
@@ -103,6 +104,7 @@ class _TransactionDashboardScreenState extends State<TransactionDashboardScreen>
                         onTap: () => _selectDate(context, true),
                         child: AbsorbPointer(
                           child: TextFormField(
+                            
                             controller: _startDateController,
                             decoration: const InputDecoration(
                               labelText: 'Start Date',

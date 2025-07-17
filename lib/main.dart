@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => TransactionProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Fintech App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -76,7 +77,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.grey, // Make unselected items visible
         onTap: _onItemTapped,
       ),

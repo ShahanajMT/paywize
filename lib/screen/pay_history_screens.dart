@@ -31,14 +31,15 @@ class _PayoutHistoryScreenState extends State<PayoutHistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple.withOpacity(0.5),
         title: const Text('Payout History'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh, color: Colors.green,),
             onPressed: _loadPayoutRequests, // Refresh the list
           ),
           IconButton(
-            icon: const Icon(Icons.delete_forever),
+            icon: const Icon(Icons.delete, color: Colors.red,),
             onPressed: () async {
               // Option to clear all history
               bool? confirm = await showDialog<bool>(

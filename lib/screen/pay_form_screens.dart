@@ -111,6 +111,7 @@ class _PayoutFormScreenState extends State<PayoutFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple.withOpacity(0.5),
         title: const Text('New Payout Request'),
       ),
       body: Padding(
@@ -165,8 +166,11 @@ class _PayoutFormScreenState extends State<PayoutFormScreen> {
               ElevatedButton(
                 onPressed: _submitForm,
                 style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.purple.withOpacity(0.5),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
+                    
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
