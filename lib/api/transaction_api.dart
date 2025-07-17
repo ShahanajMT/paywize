@@ -1,11 +1,12 @@
+
+
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:paywise/models/transaction_models.dart';
 
 
 class TransactionApi {
 
-  static const String _mockApiUrl = 'https://api.mocki.io/v1/YOUR_MOCK_API_KEY'; // Replace with a real mock API or your backend
+  static const String _mockApiUrl = 'https://api.mocki.io/v1/YOUR_MOCK_API_KEY';
 
   // Example of mock JSON data if no API is available
   static const String _mockTransactionsJson = '''
@@ -58,7 +59,8 @@ class TransactionApi {
       // Simulate network delay for mock data
       await Future.delayed(const Duration(seconds: 1));
 
-      // If using a real API:
+      // Uncomment the block below and replace _mockApiUrl with your actual API endpoint
+      // if you are using a real API.
       // final response = await http.get(Uri.parse(_mockApiUrl));
       // if (response.statusCode == 200) {
       //   List<dynamic> jsonList = json.decode(response.body);
@@ -67,7 +69,7 @@ class TransactionApi {
       //   throw Exception('Failed to load transactions: ${response.statusCode}');
       // }
 
-      // Using mock JSON data
+      // Using mock JSON data for demonstration
       List<dynamic> jsonList = json.decode(_mockTransactionsJson);
       return jsonList.map((json) => Transaction.fromJson(json)).toList();
     } catch (e) {

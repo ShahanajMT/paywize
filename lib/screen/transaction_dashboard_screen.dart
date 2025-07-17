@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:paywise/screen/transaction_details_screen.dart';
 import 'package:paywise/widget/transaction_list_item.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart'; // For date formatting
+import 'package:intl/intl.dart'; 
 import '../providers/transaction_provider.dart';
 
-import 'transaction_detail_screen.dart';
 
 class TransactionDashboardScreen extends StatefulWidget {
   const TransactionDashboardScreen({super.key});

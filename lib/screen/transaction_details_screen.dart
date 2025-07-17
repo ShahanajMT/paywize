@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paywise/models/transaction_models.dart';
 
-import 'dart:convert'; // For jsonEncode
+import 'dart:convert';
 
 class TransactionDetailScreen extends StatelessWidget {
   final Transaction transaction;

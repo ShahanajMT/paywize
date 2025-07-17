@@ -1,10 +1,11 @@
+
 class Transaction {
   final String id;
   final double amount;
   final DateTime date;
   final String type;
   final String status;
-  final Map<String, dynamic> rawData; 
+  final Map<String, dynamic> rawData; // To store all JSON data
 
   Transaction({
     required this.id,
@@ -17,12 +18,12 @@ class Transaction {
 
   factory Transaction.fromJson(Map<String, dynamic> json) {
     return Transaction(
-      id: json['id'].toString(), 
+      id: json['id'].toString(), // Assuming 'id' can be int or string
       amount: (json['amount'] as num).toDouble(),
       date: DateTime.parse(json['date']),
       type: json['type'],
       status: json['status'],
-      rawData: json, 
+      rawData: json, // Store the entire JSON
     );
   }
 }

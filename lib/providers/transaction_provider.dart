@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:paywise/models/transaction_models.dart';
 
@@ -56,10 +57,14 @@ class TransactionProvider with ChangeNotifier {
     _filteredTransactions = _transactions.where((transaction) {
       bool matchesDate = true;
       if (_startDate != null) {
-        matchesDate = transaction.date.isAfter(_startDate!) || transaction.date.isAtSameMomentAs(_startDate!);
+        // Ensure transaction date is on or after the start date
+        matchesDate = transaction.date.isAfter(_startDate!.subtract(const Duration(milliseconds: 1))) ||
+                      transaction.date.isAtSameMomentAs(_startDate!);
       }
       if (_endDate != null && matchesDate) {
-        matchesDate = transaction.date.isBefore(_endDate!.add(const Duration(days: 1))) || transaction.date.isAtSameMomentAs(_endDate!);
+        // Ensure transaction date is on or before the end date
+        matchesDate = transaction.date.isBefore(_endDate!.add(const Duration(days: 1)).subtract(const Duration(milliseconds: 1))) ||
+                      transaction.date.isAtSameMomentAs(_endDate!);
       }
 
       bool matchesStatus = true;
