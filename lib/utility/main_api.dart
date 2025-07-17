@@ -1,1 +1,0 @@
-const MAIN_URL = '';
