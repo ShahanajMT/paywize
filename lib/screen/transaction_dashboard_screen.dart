@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paywise/screen/pay_history_screens.dart';
 import 'package:paywise/screen/transaction_details_screen.dart';
 import 'package:paywise/widget/transaction_list_item.dart';
 import 'package:provider/provider.dart';
@@ -73,6 +74,19 @@ class _TransactionDashboardScreenState extends State<TransactionDashboardScreen>
               _endDateController.clear();
             },
           ),
+
+           IconButton(
+            icon: const Icon(Icons.receipt_long), // Choose an appropriate icon
+            tooltip: 'View Payout History',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PayoutHistoryScreen(),
+                ),
+              );
+            },
+          ),
         ],
       ),
       body: Column(
@@ -143,6 +157,37 @@ class _TransactionDashboardScreenState extends State<TransactionDashboardScreen>
             ),
           ),
           const Divider(),
+
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Card(
+              elevation: 3.0,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PayoutHistoryScreen(),
+                    ),
+                  );
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'View Payout History',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(Icons.arrow_forward_ios, color: Colors.blue),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
           Expanded(
             child: Consumer<TransactionProvider>(
               builder: (context, provider, child) {
